@@ -1,0 +1,21 @@
+Msg Timestamp,Message,Time,Unit of Measurement,Timing Source,Event Level,Event Identifier
+0,BACKEND,43624,US,BACKEND,ROOT,RPC (finalize) time
+0,BACKEND,42986,US,BACKEND,ROOT,QNN accelerator (finalize) time
+0,BACKEND,42885,US,BACKEND,ROOT,Accelerator (finalize) time
+0,FINALIZE,2049932,US,BACKEND,ROOT,QNN (finalize) time
+0,BACKEND,4,COUNT,BACKEND,ROOT,Number of HVX threads used
+0,BACKEND,88338,US,BACKEND,ROOT,RPC (execute) time
+0,BACKEND,87857,US,BACKEND,ROOT,QNN accelerator (execute) time
+0,BACKEND,0,COUNT,BACKEND,ROOT,Num times yield occured
+0,BACKEND,664,US,BACKEND,ROOT,Time for initial VTCM acquire
+0,BACKEND,1970,US,BACKEND,ROOT,Time for HVX + HMX power on and acquire
+0,BACKEND,51117377,CYCLES,BACKEND,ROOT,Accelerator (execute) time (cycles)
+0,NODE,0,CYCLES,BACKEND,SUB-EVENT,Input OpId_2 (cycles)
+0,NODE,3046243,CYCLES,BACKEND,SUB-EVENT,input1_tensor_QuantizeLinear:OpId_16 (cycles)
+0,NODE,1784335,CYCLES,BACKEND,SUB-EVENT,input0_tensor_QuantizeLinear:OpId_17 (cycles)
+0,NODE,10958875,CYCLES,BACKEND,SUB-EVENT,matmul_node:OpId_18 (cycles)
+0,NODE,32129948,CYCLES,BACKEND,SUB-EVENT,matmul_output_tensor_DequantizeLinear:OpId_22 (cycles)
+0,NODE,3197976,CYCLES,BACKEND,SUB-EVENT,Output OpId_3 (cycles)
+0,BACKEND,26024,US,BACKEND,ROOT,Accelerator (execute) time
+0,BACKEND,25815,US,BACKEND,ROOT,Accelerator (execute excluding wait) time
+0,EXECUTE,99091,US,BACKEND,ROOT,QNN (execute) time

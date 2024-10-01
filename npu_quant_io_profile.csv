@@ -1,0 +1,19 @@
+Msg Timestamp,Message,Time,Unit of Measurement,Timing Source,Event Level,Event Identifier
+0,BACKEND,26825,US,BACKEND,ROOT,RPC (finalize) time
+0,BACKEND,26448,US,BACKEND,ROOT,QNN accelerator (finalize) time
+0,BACKEND,26355,US,BACKEND,ROOT,Accelerator (finalize) time
+0,FINALIZE,1557972,US,BACKEND,ROOT,QNN (finalize) time
+0,BACKEND,4,COUNT,BACKEND,ROOT,Number of HVX threads used
+0,BACKEND,64116,US,BACKEND,ROOT,RPC (execute) time
+0,BACKEND,63551,US,BACKEND,ROOT,QNN accelerator (execute) time
+0,BACKEND,0,COUNT,BACKEND,ROOT,Num times yield occured
+0,BACKEND,699,US,BACKEND,ROOT,Time for initial VTCM acquire
+0,BACKEND,2446,US,BACKEND,ROOT,Time for HVX + HMX power on and acquire
+0,BACKEND,18173387,CYCLES,BACKEND,ROOT,Accelerator (execute) time (cycles)
+0,NODE,211078,CYCLES,BACKEND,SUB-EVENT,Input OpId_2 (cycles)
+0,NODE,10697422,CYCLES,BACKEND,SUB-EVENT,matmul_node:OpId_23 (cycles)
+0,NODE,0,CYCLES,BACKEND,SUB-EVENT,matmul_output_dequant:OpId_27 (cycles)
+0,NODE,7264887,CYCLES,BACKEND,SUB-EVENT,Output OpId_3 (cycles)
+0,BACKEND,10353,US,BACKEND,ROOT,Accelerator (execute) time
+0,BACKEND,10112,US,BACKEND,ROOT,Accelerator (execute excluding wait) time
+0,EXECUTE,67117,US,BACKEND,ROOT,QNN (execute) time
