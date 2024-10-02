@@ -8,7 +8,7 @@ from readable_number import ReadableNumber
 import time
 
 MATRIX_COUNT = 6
-MATRIX_A =1500
+MATRIX_A = 1500
 MATRIX_B = 1500
 MATRIX_K = 256
 OPS_PER_MUL_ADD = 2
