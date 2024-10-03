@@ -12,7 +12,7 @@ TL;DR - We see 1.3% of Qualcomm's NPU 45 Teraops/s claim when benchmarking Windo
     - [Running](#running)
     - [Understanding the Output](#understanding-the-output)
     - [What the Benchmark Measures](#what-the-benchmark-measures)
-    - [Design Decisions](#design-decisions)
+    - [Possible Confounding Factors](#possible-confounding-factors)
       - [Compute Bound](#compute-bound)
       - [Power Settings](#power-settings)
       - [Model Topology](#model-topology)
@@ -164,7 +164,7 @@ I/O" approach mentioned in the results. This is usually around three times
 faster than the float I/O version, and profiling shows most of the time is
 going on the matrix multiplication, as we'd hope.
 
-### Design Decisions
+### Possible Confounding Factors
 
 There are a lot of variables involved in measuring performance. Here are some
 of the assumptions we've made:
