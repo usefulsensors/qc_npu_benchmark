@@ -1,12 +1,41 @@
 # Benchmarking Qualcomm's NPU on the Microsoft Surface Tablet
 
+TL;DR - We see 1.3% of Qualcomm's NPU 45 Teraops/s claim when benchmarking Windows AI PCs
+
+  - [Introduction](#introduction)
+  - [Installation](#installation)
+    - [Python](#python)
+    - [Cmake](#cmake)
+    - [Visual Studio](#visual-studio)
+    - [Pip Packages](#pip-packages)
+  - [Benchmark](#benchmark)
+    - [Running](#running)
+    - [Understanding the Output](#understanding-the-output)
+    - [What the Benchmark Measures](#what-the-benchmark-measures)
+    - [Design Decisions](#design-decisions)
+      - [Compute Bound](#compute-bound)
+      - [Power Settings](#power-settings)
+      - [Model Topology](#model-topology)
+      - [Configuration Errors](#configuration-errors)
+      - [Onnx Framework](#onnx-framework)
+  - [Interpreting the Results](#interpreting-the-results)
+
+## Introduction
+
 Microsoft now offers Surface tablets that run Windows on a Qualcomm Arm-based 
 SoC. These are marketed as AI PCs, due to their ability to run machine learning
-models faster and more efficiently than other systems. Unfortunately there 
-aren't many code examples or benchmarks available to demonstrate how to achieve
-these results as a third-party developer, so we've put together a small
-standalone project to test performance. We're hoping this will help everyone
-achieve better AI performance, by setting up some simple metrics.
+models faster and more efficiently than other systems. We are fans of 
+Qualcomm's hardware, and its NPU in particular, so we've invested a lot of time
+and resources into porting our third-party app to this plaform.
+
+Unfortunately there  aren't many code examples or benchmarks available to 
+demonstrate how to achieve fast results as an external developer, so we've put
+together a small standalone project to show the performance we're seeing. It's
+significantly below what we'd hoped for, so we're publishing this benchmark to
+see if we can get ideas on how to achieve lower latency. I'm hopeful there will
+be software changes, either at the application, framework, or driver level, 
+that will improve these results in the future, since I've seen the underlying 
+hardware perform very effectively on other platforms like Android.
 
 ## Installation
 
@@ -170,6 +199,27 @@ used convolutions, or static weights, but settled for a single matrix
 multiplication operation with dynamic inputs, since that reflected the 
 transformer architectures that are widely used for LLMs and other modern 
 models.
+
+#### Configuration Errors
+
+It's possible that the way we build and run our models causes them to fall off
+the fast path of the drivers or accelerator implementation. For example, we're
+using unsigned eight-bit quantization, with qdq elements in the graph. We've
+attempted to follow best practice from the documentation, but we'd welcome ways
+to improve performance, especially since these would improve the performance of
+our actual applications.
+
+#### Onnx Framework
+
+There are multiple different ways to access AI acceleration on Windows. We 
+looked at DirectML, but it only seems to support GPU access. OpenVino doesn't
+run on our Arm hardware, as far as we can tell. We've seen similar performance
+results to those shown here using the [Qualcomm QNN SDK](https://www.qualcomm.com/developer/software/neural-processing-sdk-for-ai) 
+directly. TensorFlow Lite isn't supported on Windows for Arm. From this 
+research and our experiments, Onnx is supported by both Microsoft and Qualcomm,
+and seems to be the best framework to use to get accelerated performance from
+the NPU, but we're interested in learning if other APIs would be more 
+appropriate.
 
 ## Interpreting the Results
 
