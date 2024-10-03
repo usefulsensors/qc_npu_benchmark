@@ -233,3 +233,5 @@ performance advantages that make it worth using.
 The second conclusion is that the measured performance of 573 billion 
 operations per second is only 1.3% of the 45 trillion ops/s that [the marketing material](https://www.microsoft.com/en-us/surface/devices/surface-pro-11th-edition)
 promises.
+
+Surface Pro 10, Intel Core Ultra 7 165U 2.10 GHz - CPU took 33.12ms, 208,718,487,691 ops per second
